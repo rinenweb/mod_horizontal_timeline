@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="5.0" client="site" method="upgrade">
+    <name>MOD_HORIZONTAL_TIMELINE</name>
+    <description>MOD_HORIZONTAL_TIMELINE_DESC</description>
+    <author>Rinenweb</author>
+        <authorEmail>info@rinenweb.eu</authorEmail>
+	    <authorUrl>https://www.rinenweb.eu</authorUrl>
+    <version>1.0.0</version>
+    <files>
+        <filename module="mod_horizontal_timeline">mod_horizontal_timeline.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/style.css</filename>
+        <filename>tmpl/script.js</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_horizontal_timeline.ini</language>
+		<language tag="en-GB">language/en-GB/mod_horizontal_timeline.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="above_text" type="editor" label="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT" description="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT_DESC" />
+                <field name="timeline_items" type="subform" label="MOD_HORIZONTAL_TIMELINE_ITEMS" description="MOD_HORIZONTAL_TIMELINE_ITEMS_DESC" multiple="true">
+                    <form>
+                        <fields name="options">
+                            <field name="above_dot_text" type="editor" filter="raw" label="MOD_HORIZONTAL_TIMELINE_ABOVE_DOT_TEXT" description="MOD_HORIZONTAL_TIMELINE_ABOVE_DOT_TEXT_DESC" />
+							<field name="year" type="text" label="MOD_HORIZONTAL_TIMELINE_YEAR" description="MOD_HORIZONTAL_TIMELINE_YEAR_DESC" />
+                            <field name="below_text" type="editor" filter="raw" label="MOD_HORIZONTAL_TIMELINE_BELOW_TEXT" description="MOD_HORIZONTAL_TIMELINE_BELOW_TEXT_DESC" />
+                        </fields>
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

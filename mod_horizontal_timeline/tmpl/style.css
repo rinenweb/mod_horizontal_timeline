@@ -1,0 +1,181 @@
+:root {
+  --rowNum: 4;
+  --colNum: 6;
+  --gridHeight: 120px;
+  --wrapperH: 40px;
+  --active-color: rgb(26, 115, 232);
+}
+.timelinebody {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: 0;
+    background-color: #f0f0f0;
+}
+.timeline {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #808080;
+    z-index: 0;
+    margin: 20px
+}
+.moa-roadmap-details {
+    display: block;
+    margin-top: 20px;
+    padding: 15px;
+/*    background-color: #f8f8f8;
+    border: 1px solid #ddd;*/
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.moa-roadmap-content {
+    font-size: 16px;
+    color: #333;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.active{
+ color: var(--active-color) !important;
+}
+.active::before{
+ background-color: var(--active-color) !important;
+}
+.active-year{
+ background-color: var(--active-color);
+}
+.moa-roadmap-group {
+    text-size-adjust: 100%;
+    box-sizing: inherit;
+    display: grid;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    padding-bottom: 25px;
+    margin-bottom: 80px;
+    grid-template-columns: repeat(var(--colNum), 1fr);
+}
+
+.moa-roadmap-group::after {
+    content: "";
+    height: 2px;
+    width: max(960px, 100%);
+    position: absolute;
+    bottom: 25px;
+    background-image: linear-gradient(to right, rgb(154, 160, 166), rgb(154, 160, 166) 80%, transparent 100%);
+}
+.moa-roadmap-wrapper{
+   -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    cursor: pointer;    
+    white-space: nowrap;
+    color: rgb(95, 99, 104);
+    text-wrap: wrap;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+.moa-roadmap-wrapper:hover .moa-roadmap-card-year {
+  color: var(--active-color);
+}
+.moa-roadmap-wrapper:hover .moa-roadmap-card-title {
+  color: var(--active-color);
+}
+.moa-roadmap-wrapper:hover .moa-roadmap-card-footer::before {
+  background-color: var(--active-color);
+  font-weight: bold;
+}
+/* .moa-roadmap-card {      
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;    
+    cursor: pointer;    
+    white-space: nowrap;
+    color: rgb(95, 99, 104);
+    text-wrap: wrap;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    margin-top: 24px;
+    margin-bottom: 26px;
+} */
+.moa-roadmap-card{     
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;    
+    cursor: pointer;    
+    white-space: nowrap;
+    color: rgb(95, 99, 104);
+    text-wrap: wrap;
+    box-sizing: inherit;
+    padding: .5rem;
+}
+.moa-roadmap-card-title{     
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;    
+    cursor: pointer;    
+    white-space: nowrap;
+    text-align: left;
+    text-wrap: wrap;
+    box-sizing: inherit;
+    margin: 16px 0;
+    color: rgb(32, 33, 36);
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+.moa-roadmap-card-footer{     
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: left;
+    text-wrap: wrap;
+    color: rgb(32, 33, 36);
+    font-weight: 400;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: -17px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    width: calc(100% / var(--colNum));
+}
+.moa-roadmap-card-footer::before {
+    content: "";
+    height: 15px;
+    width: 15px;
+    background-color: rgb(154, 160, 166);
+    display: inline-block;
+    z-index: 1;
+    border-radius: 50%;    
+}
+.moa-roadmap-card-year{    
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;    
+    cursor: pointer;    
+    white-space: nowrap;
+    text-align: left;
+    text-wrap: wrap;
+    box-sizing: inherit;
+    color: rgb(95, 99, 104);
+    font-weight: 500;
+    line-height: 19px;
+}
+.qsite-roadmap {
+    padding-top: 160px;
+    padding-bottom: 160px;
+}
+*, :after, :before {
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
