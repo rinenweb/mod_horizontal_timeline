@@ -19,7 +19,7 @@
     <config>
         <fields name="params">
             <fieldset name="basic">
-                <field name="above_text" type="editor" label="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT" description="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT_DESC" />
+                <field name="above_text" type="editor" filter="raw" label="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT" description="MOD_HORIZONTAL_TIMELINE_ABOVE_TEXT_DESC" />
                 <field name="timeline_items" type="subform" label="MOD_HORIZONTAL_TIMELINE_ITEMS" description="MOD_HORIZONTAL_TIMELINE_ITEMS_DESC" multiple="true">
                     <form>
                         <fields name="options">
