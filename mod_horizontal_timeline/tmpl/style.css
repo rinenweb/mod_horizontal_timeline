@@ -171,6 +171,12 @@
     font-weight: 500;
     line-height: 19px;
 }
+.moa-roadmap-details-content-visible {
+    display: block;
+}
+.moa-roadmap-details-content-hidden {
+    display: none;
+}
 .qsite-roadmap {
     padding-top: 160px;
     padding-bottom: 160px;
