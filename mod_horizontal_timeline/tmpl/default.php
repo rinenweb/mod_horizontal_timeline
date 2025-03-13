@@ -16,7 +16,7 @@ $selectedItemId = '';
 $sefUrl = '';
 ?>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="modules/mod_horizontal_timeline/tmpl/style.css">
 <style>
   :root {
     --colNum: <?=$numberOfColumns?>;    
