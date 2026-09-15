@@ -68,4 +68,4 @@ Selection is handled by a single delegated `click` listener scoped to the module
 
 ## License
 
-Released under the **GNU General Public License v2.0 or later**. See [LICENSE](LICENSE) for details.
+Released under the **GNU General Public License v3.0 or later**. See [LICENSE](LICENSE) for details.
