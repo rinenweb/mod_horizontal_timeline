@@ -1,8 +1,5 @@
 :root {
-  --rowNum: 4;
   --colNum: 6;
-  --gridHeight: 120px;
-  --wrapperH: 40px;
   --active-color: rgb(26, 115, 232);
 }
 .timelinebody {
