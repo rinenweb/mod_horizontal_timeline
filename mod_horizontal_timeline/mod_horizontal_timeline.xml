@@ -5,7 +5,7 @@
     <author>Rinenweb</author>
         <authorEmail>info@rinenweb.eu</authorEmail>
 	    <authorUrl>https://www.rinenweb.eu</authorUrl>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <files>
         <filename module="mod_horizontal_timeline">mod_horizontal_timeline.php</filename>
         <filename>tmpl/default.php</filename>
