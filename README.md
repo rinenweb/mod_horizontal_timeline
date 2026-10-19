@@ -19,13 +19,13 @@
 
 ## Requirements
 
-- Joomla **5.x** (site).
-- PHP **8.1** or newer.
+- Joomla **4.X, 5.X & 6.X**
+- PHP **8.0** or newer
 
 
 ## Installation
 
-1. Download the latest `mod_horizontal_timeline_vX.Y.Z.zip` from the [Releases](../../releases) page.
+1. Download the latest `mod_horizontal_timeline.zip` from the [Releases](../../releases) page.
 2. In the Joomla administrator, go to **System → Install → Extensions**.
 3. Upload the ZIP (drag & drop or *Upload Package File*).
 4. Go to **Content → Site Modules**, open **Horizontal Timeline**, assign it to a position and menu items, and set it to *Published*.
