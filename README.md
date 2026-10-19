@@ -51,21 +51,6 @@ The module lays the items out on a CSS grid, one column per item. Each item rend
 
 Selection is handled by a single delegated `click` listener scoped to the module container, so behaviour stays correct no matter how many instances are on the page.
 
-
-## Changelog
-
-### 1.0.1
-- Replaced legacy `J`-prefixed classes with namespaced Joomla APIs.
-- Assets now load once through the Web Asset Manager (no duplicate CSS include).
-- Per-instance scoping for CSS variables and element IDs — safe with multiple modules per page.
-- Output escaping for the year/date field.
-- Replaced inline `onclick` handlers with event delegation (CSP-friendly).
-- Removed unused JavaScript and CSS, and dead PHP variables.
-- Fixed the manifest `<name>` element and added a language string for the empty state.
-
-### 1.0.0
-- Initial release.
-
 ## License
 
 Released under the **GNU General Public License v3.0 or later**. See [LICENSE](LICENSE) for details.
