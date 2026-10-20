@@ -1,25 +1,22 @@
 <?php
 /**
- * @package     Rinenweb.Module
- * @subpackage  mod_horizontal_timeline
- * @author      Rinenweb <info@rinenweb.eu>
- * @link        https://www.rinenweb.eu
- * @license     GNU General Public License version 2 or later
+ * @license     GNU General Public License version 3 or later; see LICENSE
  */
 
-// Prevent direct access
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 
-/** @var \Joomla\CMS\Application\CMSApplicationInterface $app */
 $app = Factory::getApplication();
 $wa  = $app->getDocument()->getWebAssetManager();
 
 // Load the module parameters
-$aboveText     = $params->get('above_text', '');
-$timelineItems = $params->get('timeline_items', []);
+$aboveText = $params->get('above_text', '');
+
+// Normalise the subform value to an array of item objects. An empty object or an
+// empty string must count as "no items", which empty() alone does not guarantee.
+$timelineItems = array_filter((array) $params->get('timeline_items', []), 'is_object');
 
 // Register and load the assets once, via the Web Asset Manager
 $wa->registerAndUseStyle(
@@ -33,4 +30,4 @@ $wa->registerAndUseScript(
     ['defer' => true]
 );
 
-require ModuleHelper::getLayoutPath('mod_horizontal_timeline');
+require ModuleHelper::getLayoutPath('mod_horizontal_timeline', $params->get('layout', 'default'));
