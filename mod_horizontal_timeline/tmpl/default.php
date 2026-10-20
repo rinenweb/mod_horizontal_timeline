@@ -1,25 +1,20 @@
 <?php
-// Prevent direct access
+/**
+ * @license     GNU General Public License version 3 or later; see LICENSE
+ */
+
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 
 $moduleId = (int) $module->id;
+$htlId    = 'mod-htl-' . $moduleId;
 
-// Build the list of "below timeline" descriptions, keyed by item index
-$descriptions = [];
-
-foreach ((array) $timelineItems as $index => $item) {
-    $descriptions[$index] = $item->options->below_text ?? '';
-}
-
-$numberOfColumns = count((array) $timelineItems);
+// Per-instance column count, added through the Web Asset Manager so Joomla's
+// HTTP Headers plugin can nonce it under a strict Content-Security-Policy.
+$wa->addInlineStyle('#' . $htlId . ' { --colNum: ' . count($timelineItems) . '; }');
 ?>
-<style>
-  #mod-htl-<?php echo $moduleId; ?> { --colNum: <?php echo $numberOfColumns; ?>; }
-</style>
-
-<div id="mod-htl-<?php echo $moduleId; ?>" class="mod-horizontal-timeline">
+<div id="<?php echo $htlId; ?>" class="mod-horizontal-timeline">
 <?php if (!empty($aboveText)) : ?>
   <div class="timeline-above">
     <?php echo $aboveText; ?>
@@ -29,10 +24,15 @@ $numberOfColumns = count((array) $timelineItems);
 <?php if (!empty($timelineItems)) : ?>
   <div class="timelinebody">
     <div class="moa-roadmap-group">
-      <?php foreach ($timelineItems as $index => $item) : ?>
+      <?php foreach ($timelineItems as $index => $item) :
+          $key = htmlspecialchars((string) $index, ENT_QUOTES, 'UTF-8'); ?>
         <div class="moa-roadmap-wrapper"
-             id="moa-roadmap-wrapper-<?php echo $moduleId; ?>-<?php echo htmlspecialchars((string) $index, ENT_QUOTES, 'UTF-8'); ?>"
-             data-index="<?php echo htmlspecialchars((string) $index, ENT_QUOTES, 'UTF-8'); ?>">
+             id="moa-roadmap-wrapper-<?php echo $moduleId; ?>-<?php echo $key; ?>"
+             data-index="<?php echo $key; ?>"
+             role="button"
+             tabindex="0"
+             aria-expanded="false"
+             aria-controls="<?php echo $htlId; ?>-details-<?php echo $key; ?>">
           <div class="moa-roadmap-card">
             <div class="moa-roadmap-card-title"><?php echo $item->options->above_dot_text ?? ''; ?></div>
           </div>
@@ -46,10 +46,12 @@ $numberOfColumns = count((array) $timelineItems);
 
   <!-- Area for showing the text below the timeline dynamically -->
   <div class="moa-roadmap-details">
-    <?php foreach ($descriptions as $index => $below) : ?>
+    <?php foreach ($timelineItems as $index => $item) :
+        $key = htmlspecialchars((string) $index, ENT_QUOTES, 'UTF-8'); ?>
       <div class="moa-roadmap-details-content-hidden"
-           data-index="<?php echo htmlspecialchars((string) $index, ENT_QUOTES, 'UTF-8'); ?>">
-        <?php echo $below; ?>
+           id="<?php echo $htlId; ?>-details-<?php echo $key; ?>"
+           data-index="<?php echo $key; ?>">
+        <?php echo $item->options->below_text ?? ''; ?>
       </div>
     <?php endforeach; ?>
   </div>
